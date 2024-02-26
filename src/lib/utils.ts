@@ -47,7 +47,7 @@ export function constructMetadata({
     },
     icons,
     metadataBase: new URL('https://sass-pdf-ai.vercel.app'),
-    themeColor: '#FFF',
+    // themeColor: '#FFF',
     ...(noIndex && {
       robots: {
         index: false,
