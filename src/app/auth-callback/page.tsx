@@ -2,11 +2,12 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { trpc } from "../_trpc/client";
 import { Loader2 } from "lucide-react";
+import { Suspense } from "react";
 
 type AuthCallback = {
 };
 
-export default function AuthCallback({}: AuthCallback) {
+function AuthCallbackSuspense() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -35,5 +36,13 @@ export default function AuthCallback({}: AuthCallback) {
         <p>You will be redirected automatically</p>
       </div>
     </div>
+  );
+}
+
+export default function AuthCallback({}: AuthCallback) {
+  return (
+    <Suspense>
+      <AuthCallbackSuspense />
+    </Suspense>
   );
 };
